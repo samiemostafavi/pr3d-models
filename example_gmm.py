@@ -48,5 +48,4 @@ plt.xlabel('Delay [ms]')
 plt.ylabel('CCDF')
 plt.title('Complementary Cumulative Distribution Function (CCDF)')
 plt.grid(True)
-plt.savefig('res.png')  # Save the plot as res.png
-plt.show()
+plt.savefig('gmm_result.png')  # Save the plot as res.png
