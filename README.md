@@ -5,7 +5,9 @@ This repository contains some examples on how to use the models trained using PR
 
 Run the following example scripts and check how they work.
 
-In the examples, we open a delay model from a json file and sample it. Then we draw the CCDF of the samples
+In the examples, we open the trained model from a json file and sample it. 
+Then we draw the CCDF of the samples.
+The models are trained with 80K uplink delay measurements taken from a private 5G network. They correspond to Figure 5 of our paper: [Data-Driven Latency Probability Prediction for Wireless Networks: Focusing on Tail Probabilities](https://arxiv.org/abs/2307.10648)
 
 Run the Gaussian mixture model example:
 ```
