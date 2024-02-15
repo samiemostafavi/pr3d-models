@@ -23,11 +23,16 @@ class GaussianExtremeValueMixtureModel:
         return np.log(self.pdf(x))
 
     def pdf(self, x):
-        # Implement the pdf function as needed for your application
-        return self.weights @ np.array([norm.pdf(x, mu, sigma) for mu,sigma in zip(self.locations,self.scales)])
+        if x > self.tail_threshold:
+            return genpareto.pdf(x, self.tail_parameter, self.tail_threshold, self.tail_scale)
+        else:
+            return self.weights @ np.array([norm.pdf(x, mu, sigma) for mu,sigma in zip(self.locations,self.scales)])
     
     def cdf(self, x):
-        return self.weights @ np.array([norm.cdf(x, mu, sigma) for mu,sigma in zip(self.locations,self.scales)])
+        if x > self.tail_threshold:
+            return genpareto.cdf(x, self.tail_parameter, self.tail_threshold, self.tail_scale)
+        else:
+            return self.weights @ np.array([norm.cdf(x, mu, sigma) for mu,sigma in zip(self.locations,self.scales)])
 
     def sample(self,num_samples):
         
